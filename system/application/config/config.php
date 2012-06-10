@@ -11,7 +11,8 @@
 |	http://example.com/
 |
 */
-$config['base_url']	= "http://example.com/";
+//$config['base_url']	= "http://example.com/";
+$config['base_url']	= "http://localhost/umall/";
 
 /*
 |--------------------------------------------------------------------------
@@ -217,7 +218,7 @@ $config['cache_path'] = '';
 | enabled you MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = "";
+$config['encryption_key'] = "Encrypt10n_Wa1tf0r1t_Key";
 
 /*
 |--------------------------------------------------------------------------
@@ -327,3 +328,4 @@ $config['proxy_ips'] = '';
 
 /* End of file config.php */
 /* Location: ./system/application/config/config.php */
+

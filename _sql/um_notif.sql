@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 27, 2012 at 01:18 PM
+-- Generation Time: Jun 10, 2012 at 03:20 AM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -22,23 +22,24 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `um_notification`
+-- Table structure for table `um_notif`
 --
 
-CREATE TABLE IF NOT EXISTS `um_notification` (
+CREATE TABLE IF NOT EXISTS `um_notif` (
   `notifID` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(11) NOT NULL,
-  `status` varchar(11) NOT NULL,
-  `userID` varchar(255) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `otherID` int(11) NOT NULL,
+  `itemID` int(11) NOT NULL,
   `bidID` int(11) NOT NULL,
-  `otherID` varchar(255) DEFAULT NULL,
+  `type` varchar(16) NOT NULL,
+  `status` varchar(8) NOT NULL,
   `timeCreated` datetime NOT NULL,
   `timeEdited` datetime NOT NULL,
   PRIMARY KEY (`notifID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `um_notification`
+-- Dumping data for table `um_notif`
 --
 
 

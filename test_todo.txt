@@ -1,0 +1,9 @@
+Signin/Register
+1. Login	check
+2. Logout	check
+3. Register	check
+4. Register twice	check
+6. Activate	check
+5. Register with activated email	check
+7. Activate twice with same email	check
+5. Forget Password	check

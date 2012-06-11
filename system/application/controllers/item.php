@@ -10,6 +10,21 @@ class Item extends Controller {
 	}
 	
 	function listing() {
+		/*
+			INPUT URI
+			plo/7				minimum price
+			phi/20				maximum price
+			tag/2 4 7			tagIDs
+			search/pro legend	search terms
+			page/3				page to show
+			each/5				num of items per page
+			sort/criterion		sorting criterion, can be match, pasc, pdesc, oldtonew, newtoold
+			
+			OUTPUT
+			in_data: all the uri parameters plus page&each (if not already in url), and maxpage
+			items: 'each' number of item records for that particular page
+		*/
+	
 		$param=$this->uri->uri_to_assoc(3);
 		if(!$param) $param=array();
 		//else print_r($param);

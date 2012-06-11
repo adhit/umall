@@ -17,6 +17,17 @@ class Register extends Controller {
     }
 	
 	function forget() {
+		/*
+			DESC
+			Takes an email, reset the password of a record with that email, and send the info by email
+		
+			INPUT POST
+			email: email string
+			
+			OUTPUT
+			in_data
+				msg<array>: containing success or error messages
+		*/
 		if(!$this->input->post('filled')) {
 			$this->load->view('forget_view');
 			return;
@@ -55,6 +66,25 @@ class Register extends Controller {
 	
 	function index()
 	{
+		/*
+			DESC
+			Takes register form. It checks email for syntax and existing non-pending email; password length and retyped password;
+			username can't be empty, phone number can only contain numbers, +, and -; if agree checkbox is checked
+			If successful, an email is sent along with the activation link to the specified email
+			
+			INPUT POST
+			email: email for registering
+			pass,pass0: password and check password
+			username: fullname
+			phone: phone number
+			show: whether to show email+phone or email only for contact display
+			agree: agree with term or condition
+			
+			OUTPUT
+			in_data
+				msg<array>: success or error messages
+		*/
+		
 		if(!$this->input->post('filled')) {
 			$this->load->view('register_view');
 			return;
@@ -245,6 +275,20 @@ class Register extends Controller {
 	}
 	
 	function activate($code) {
+		/*
+			DESC
+			Takes activation code, finding matching record, and activate it. There's 3 possibilities:
+			1. No record found or invalid activation code, then gives error message 
+			2. There's another record with same email which is not pending, then gives error message
+			3. There're no or several records with same email, but all are pending. Proceed with activating this one record
+		
+			INPUT URI
+			code/70e96f478a33aa6c11b842d80b283e17	code made of md5(concat(userID,';',email,';',name,';',contactNumber))
+			
+			OUTPUT
+			msg: string, success or error message. This is for testing simplicity only, structure might be changed later
+		*/
+		
 		if(!$code) $code="";
 		//$code="70e96f478a33aa6c11b842d80b283e17";
 		$this->load->model("User_model");

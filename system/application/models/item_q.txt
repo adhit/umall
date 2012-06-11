@@ -1,0 +1,4 @@
+SELECT * FROM um_item AS a WHERE 
+price>=7 AND price<=20 
+AND (EXISTS(SELECT * FROM um_item_tag AS b WHERE a.itemID=b.itemID AND (tagID=2 OR tagID=4 or tagID=7)))
+AND ((name LIKE "%pro%")OR(description LIKE "%pro%")OR(name LIKE "%legend%")OR(description LIKE "%legend%"))

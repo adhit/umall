@@ -83,5 +83,24 @@ class User_model extends Model {
 		$user['timeEdited']=date("Y-m-d H:m:s",time());
 		$this->update(array('userID'=>$user['userID']),$user);
 	}
+	
+	function update_profile($user, $pass, $contact_number, $show){
+		$user['pass'] = $pass;
+		$user['contactNumber'] = $contact_number;
+		$user['show'] = $show;
+		$user['timeEdited']=date("Y-m-d H:m:s",time());
+		$this->session->set_userdata("user", $user);
+		$this->db->where('userID', $user["userID"]);
+		$this->db->update('um_user', $user); 
+	}
+	
+	function update_contact($user, $contact_number, $show){
+		$user['contactNumber'] = $contact_number;
+		$user['show'] = $show;
+		$user['timeEdited']=date("Y-m-d H:m:s",time());
+		$this->session->set_userdata("user", $user);
+		$this->db->where('userID', $user["userID"]);
+		$this->db->update('um_user', $user); 
+	}
 }
 ?>

@@ -64,5 +64,21 @@ class Item_model extends Model {
 		if($first) $query=false;
 		return $this->get_custom($query);
 	}
+	
+	function get_all_items($userID, $limit, $offset) {
+		$this->db->order_by("timeCreated", "desc");
+		$query = $this->db->get_where('um_item', array('userID' => $userID), $limit, $offset);
+		foreach ($query->result() as $row)
+		{
+			$itemID = $row->itemID;
+			$items[$itemID]["itemID"] = $row->itemID;
+			$items[$itemID]["name"] = $row->name;
+			$items[$itemID]["price"] = $row->price;
+			$items[$itemID]["quantity"] = $row->quantity;
+			$items[$itemID]["timeCreated"] = $row->timeCreated;
+			$items[$itemID]["timeEdited"] = $row->timeEdited;
+		}
+		return $items;
+	}
 }
 ?>

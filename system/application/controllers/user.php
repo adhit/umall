@@ -83,7 +83,7 @@ class User extends Controller {
 			user<array>: containing user record data
 			
 			POST
-			offset (for starting entry for paging)
+			offset (for starting entry for paging) possibly set in the URI later
 		*/
 		if($this->session->userdata("user")){
 			$user = $this->session->userdata("user");
@@ -94,7 +94,6 @@ class User extends Controller {
 			
 			$userID = $user["userID"];
 			$this->load->model("Bid_model");
-			echo $userID."<br/>";
 			$data["bids"] = $this->Bid_model->get_all_bids($userID, 20, $offset);
 			$this->load->view("bids_history_view", $data);
 		}
@@ -102,6 +101,32 @@ class User extends Controller {
 			redirect(site_url()."/home");	
 		}
 	}
+	
+	function item(){
+		/*
+			controller to display all the items an user has posted (limited to 20 items, if more than that, need paging)
+			SESSION GET
+			user<array>: containing user record data
+			
+			POST
+			offset (for starting entry for paging or directly goes to which page)  possibly set in the URI later
+		*/
+		if($this->session->userdata("user")){
+			$user = $this->session->userdata("user");
+			if($this->input->post("offset")){
+				$offset = $this->input->post("offset");
+			} //possibly to be moved in URI
+			else{$offset = 0;}
+			
+			$userID = $user["userID"];
+			$this->load->model("Item_model");
+			$data["items"] = $this->Item_model->get_all_items($userID, 20, $offset);
+			$this->load->view("sell_history_view", $data);
+		}
+		else{
+			redirect(site_url()."/home");	
+		}
+	}	
 }
 
 /* End of file user.php */

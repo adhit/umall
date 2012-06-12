@@ -10,7 +10,7 @@ class Bid_model extends Model {
 		$this->db->select('um_bid.itemID, name, um_bid.userID, bidID, um_bid.price, qty, approved_qty, partial, approved, um_bid.timeCreated, um_bid.timeEdited');
 		$this->db->from('um_bid');
 		$this->db->join('um_item', 'um_bid.itemID = um_item.itemID');
-		//$this->db->limit(, 3);
+		$this->db->limit($limit, $offset);
 		$this->db->where('um_bid.userID', $userID);
 		$this->db->order_by("timeCreated", "desc");
 		$query = $this->db->get();

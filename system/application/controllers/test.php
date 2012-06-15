@@ -7,9 +7,9 @@ class Test extends Controller {
 		parent::Controller();	
 	}
 	
-	function index($sapi)
+	function index()
 	{
-		echo $sapi;
+		echo base_url()."<br/>".site_url();
 	}
 }
 

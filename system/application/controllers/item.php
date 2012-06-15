@@ -75,6 +75,10 @@ class Item extends Controller {
 		});
 		return $list;
 	}
+	
+	function post() {
+		
+	}
 }
 
 ?>

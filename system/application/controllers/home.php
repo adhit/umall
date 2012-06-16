@@ -21,14 +21,25 @@ class Home extends Controller {
 				msg<array>: containing success or error messages
 			site_url: string containing site's url. Actually useless, can just call site_url(), but I'm too lazy to delete it and change the view file
 		*/
-	
+		
+		//Opening Begin-------
 		$data=array();
-		$in_data=$this->session->userdata("in_data");
-		if($in_data) $data["in_data"]=$in_data;		
-		$this->session->unset_userdata("in_data");
-		if($this->session->userdata("user")) $data["user"]=$this->session->userdata("user");
-		$data["site_url"]=site_url();
-		//$this->load->view('welcome_message');
+		//Setting user data
+		if($this->session->userdata("user")) {
+			$user=$this->session->userdata("user");
+			$data['user']=$user;
+		}
+		//Setting message data
+		$msg=array();
+		$in_data=array();
+		if($this->session->flashdata('in_data')) {
+			$data['in_data']=$this->session->flashdata('in_data');
+			print_r($data);
+			$msg=$data['in_data']['msg'];
+			$in_data=$data['in_data'];
+		}
+		//Opening End-------
+	
 		$this->load->view('home_view',$data);
 	}
 	
@@ -64,7 +75,7 @@ class Home extends Controller {
 			}
 			else $data["msg"]["signin_error"]="No match found. Please try again";
 		}
-		$this->session->set_userdata("in_data",$data);
+		$this->session->set_flashdata("in_data",$data);
 		redirect(site_url()."/home");
 	}
 	

@@ -133,7 +133,7 @@ class Register extends Controller {
 			$msg["phone_error"]="Invalid phone number";
 			$valid=false;
 		}
-		//chec terms read
+		//check terms read
 		if(!$agree) {
 			$msg["agree_error"]="Please read and agree with the terms and conditions before continuing";
 			$valid=false;

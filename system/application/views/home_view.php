@@ -4,6 +4,9 @@
 	</head>
 	<body>		
 		<div style="width:1024px; margin-left:auto; margin-right:auto; border: 1px solid black">
+			<?php
+				if(isset($in_data['msg']['home_error'])) echo $in_data['msg']['home_error'];
+			?>
 			<h1>User</h1>
 			<?php if(isset($user)) {
 			if(isset($in_data["msg"]["signin_success"])) echo "Success: ".$in_data["msg"]["signin_success"]."<br/>";

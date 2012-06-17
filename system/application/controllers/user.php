@@ -57,7 +57,7 @@ class User extends Controller {
 			$this->session->set_userdata("update_message", "You have successfully updated your profile");
 		}
 		else if($password == $repeat_password){
-			if(strlen($password) < 4){
+			if(strlen($password) < 6){
 				$this->session->set_userdata("update_message", "Password too short");
 			}
 			else{

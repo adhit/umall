@@ -40,7 +40,7 @@ class Home extends Controller {
 		}
 		//Opening End-------
 	
-		$this->load->view('home_view',$data);
+		$this->load->view('old_home_view',$data);
 	}
 	
 	function signin() {

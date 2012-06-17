@@ -45,6 +45,12 @@ class Item extends Controller {
 		
 		$param=$this->uri->uri_to_assoc(3);
 		if(!$param) $param=array();
+		
+		$data['crnt']="/item/listing";
+		foreach($param as $key=>$val) {
+			$data['crnt'].="/".$key."/".$val;
+		}
+		
 		$this->load->model("Item_model");
 		$temp=$this->Item_model->get_listing($param);
 		$temp=$this->_sort_listing($temp,$param);

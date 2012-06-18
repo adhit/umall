@@ -21,6 +21,17 @@ class Item_model extends Model {
 		else return $q->result_array();
 	}
 	
+	function insert($item) {
+		$this->db->insert('um_item',$item);
+	}
+	
+	function getone($data) {
+		$q = $this->get($data);
+		//print_r($q);
+		if(!$q) return false; 
+		else return $q[0];
+	}
+	
 	function get_listing($data) {
 		$query="";
 		$first=true;
@@ -79,6 +90,36 @@ class Item_model extends Model {
 			$items[$itemID]["timeEdited"] = $row->timeEdited;
 		}
 		return $items;
+	}
+	
+	function get_all_tags() {
+		$this->db->from('um_tag');
+		$q=$this->db->get();
+		if($q->num_rows()==0) return false;
+		else return $q->result_array();
+	}
+	
+	function insert_item_tag($data) {
+		$this->db->insert('um_item_tag',$data);
+	}
+	
+	function post_item($item,$tags) {
+		$this->db->trans_start();
+		$this->insert($item);
+		$temp=$this->getone($item);
+		if($temp) {
+			foreach($tags as $tagID) $this->insert_item_tag(array('itemID'=>$temp['itemID'],'tagID'=>$tagID));
+		}
+		$this->db->trans_complete();
+		if($this->db->trans_status()===FALSE) return false;
+		if($temp) return $temp;
+	}
+	
+	function get_tags($data) {
+		$this->db->from('um_tag')->join('um_item_tag','um_tag.tagID = um_item_tag.tagID')->where($data);
+		$q=$this->db->get();
+		if($q->num_rows()==0) return false;
+		else return $q->result_array();
 	}
 }
 ?>

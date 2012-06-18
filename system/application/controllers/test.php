@@ -7,9 +7,12 @@ class Test extends Controller {
 		parent::Controller();	
 	}
 	
-	function index($sapi)
+	function index()
 	{
-		echo site_url();
+		echo FILE_URL."<br/>";
+		echo APPPATH."<br/>";
+		var_dump(is_dir(FILE_URL)); echo "<br/>";
+		var_dump(is_dir(APPPATH)); echo "<br/>";
 	}
 }
 

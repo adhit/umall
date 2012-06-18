@@ -65,7 +65,7 @@ class Home extends Controller {
 			else $data["msg"]["signin_error"]="No match found. Please try again";
 		}
 		$this->session->set_userdata("in_data",$data);
-		redirect(site_url()."/home");
+		redirect(site_url()."/home/");
 	}
 	
 	function signout() {

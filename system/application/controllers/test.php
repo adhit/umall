@@ -9,7 +9,7 @@ class Test extends Controller {
 	
 	function index($sapi)
 	{
-		echo $sapi;
+		echo site_url();
 	}
 }
 

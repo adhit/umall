@@ -12,7 +12,7 @@
 |
 */
 //$config['base_url']	= "http://example.com/";
-$config['base_url']	= "http://localhost/umall/";
+$config['base_url']	= "http://localhost/test/SU/SU/umall";
 
 /*
 |--------------------------------------------------------------------------

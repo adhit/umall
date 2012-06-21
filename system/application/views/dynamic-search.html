@@ -13,55 +13,51 @@
     <link href="./assets/css/global.css" rel="stylesheet">
     
     <style type="text/css">
-	  /*BANNER */
-	  .banner{
-		  margin:50px auto 50px -60px;
-		  border-radius:10px;
-		  width:1059px;
-		  background: url(assets/img/banner4.jpg) no-repeat;
-		  height:267px;
-	  }
 	
-	/* Grid PRODUCT THUMBNAIL */
-	.s-shade{
-		width:940px;
-		height:10px;
-		background:url(assets/img/s-shade.jpg);
-		margin-bottom:30px;}
-		
-	.t-head{
-		margin-bottom:30px;
-	}
-	.t-head h1{
-		line-height:50px;
-		color:#000;
-		text-align:left;
-		text-shadow: 0px 0px 1px #000;
-		}
-		
-	.t-head p{
-		text-align:justify;
-		line-height:25px;}
-	
-	.item-title{
-		color:#000;
+	.t-items{
+		margin-top:30px;
+		color:#000;}
+	.t-items th{
+		font-size:20px;
 		font-weight:bold;
+		text-align:center;}
+	.t-items td{
+		padding: 20px;}
+	.t-items td:first-child{ /*thumbnail*/
+		width: 100px;
+		padding-right:0px;}
+	.t-items td:nth-child(2){
+		width:400px;
+		border-left:none;
+		text-align:left;}
+	.t-items td:nth-child(2) h4 a{
+		font-size:15px;
+		line-height:30px;
+		color:#000;
+		cursor:pointer;
 		}
-	.item-price{
-		color: #000;
-		}
+	.t-items td:nth-child(3){
+		width:150px;
+		border-left:none;}
+    
+	.bid-latest{
+		font-size:15px;
+		font-weight:bold;
+		line-height:30px;}
+	.bid-latest abbr{
+		font-size:12px;
+		font-weight:normal;
+		color:#666;}
+	.bid-stock{
+		line-height:px;}
+	.bid-addinfo{
+		color:#666;}
 		
-	.item-overlay{
-		background: url(assets/img/glossy.png);
-		width:198px;
-		height:198px;
-		position:absolute;}
-	.thumbnail > img {
-		border-radius:3px;
-		box-shadow: 0 0 2px #333;
-		}
-	.thumbnails{
-		margin-bottom:-30px;}
+	
+    .result-queries{
+		margin-top:30px;
+		display:block;
+		font-size:15px;}
     </style>
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -110,8 +106,8 @@
 	<div class="panel p-right">
     	<div class="arrow"></div>
         <ul class="p-group">
-        	<li class="signin" ><form action="index (abis login).html"> 
-            <div class="input-append"><input type="text" class="input-medium input-email-panel" placeholder="Email"><span class="add-on">@ntu.edu.sg</span></div>
+        	<li class="signin" ><form> 
+            <input type="text" class="input-medium" placeholder="Email">
   			<input type="password" class="input-medium" placeholder="Password">
   			<label class="checkbox" ><input type="checkbox" >Remember me </label> <button type="submit" class="btn btn-primary btn-signin">&nbsp Sign in &nbsp</button> </form></li>
         </ul>
@@ -121,11 +117,11 @@
             <h5>Sign up and start posting your stuff</h5>
         </div>
         <ul class="p-group">
-        	<li class="signup"><form action="./register/index.html"> 
-			<div class="input-append"><input type="text" class="input-medium input-email-panel" placeholder="Email"><span class="add-on">@ntu.edu.sg</span></div>
-  			<input type="text" class="input-medium" placeholder="Full Name">
+        	<li class="signup"><form> 
+            <input type="text" class="input-medium" placeholder="Full Name">
+            <input type="text" class="input-medium" placeholder="Email">
   			<input type="password" class="input-medium" placeholder="Password">
-  			<button type="submit" class="btn btn-danger btn-large btn-signup" >Sign up for U-mall</button> </form></button>
+  			<button type="submit" class="btn btn-danger btn-large btn-signup">Sign up for U-mall</button> </form></button>
         </ul>
         <hr>
         <ul class="p-group p-hover">
@@ -141,12 +137,12 @@
         	<div class="span2 hidden-phone">
                 <form class="form-search searchbar">
                       <div class="input-append">
-                           <input class="input-small search-query"  placeholder="Search" id="appendedInput" size="16" type="text"><a href="./dynamic-search.html" ><span class="add-on"><i class="icon-search"></i></span></span>
+                           <input class="input-small search-query"  placeholder="Search" id="appendedInput" size="16" type="text"><span class="add-on"><i class="icon-search"></i></span>
                       </div>
                 </form>
             </div>
             <div class="span2">
-              <a class="logo logo-mid hidden-phone" href="#"></a>
+              <a class="logo logo-mid hidden-phone" href="./index.html"></a>
               <a class="logo logo-left visible-phone" href="#"></a>
             </div>
             <div class="span3 login pull-right">
@@ -155,14 +151,10 @@
         </div>
       </div>
     </div>
-    
-    
-    <!--<div class="banner-overlay hidden-phone hidden-tablet"></div>-->
-    
 	<br><br><br>
     
     <div class="container">
-   	<div class="categ_wrapper">
+    <div class="categ_wrapper">
         <ul class="categories">
             <li><a>Appliances</a></li>
             <li><a>Arts</a></li>
@@ -203,29 +195,30 @@
             <li><a>MSE</a></li>
     	</ul>
     </div>
-	<!--<img class="banner" src="assets/img/banner4.jpg">-->
-    <div class="banner"></div>
-    
-    <div class="t-head">
-    <h1>Browse and bid your college mate collections</h1>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when  typesetting. <a href="#"> Learn more about the bidding system</a></p>
+    <span class="result-queries"><span class="result-text">Searched queries for : &nbsp;</span><span class="label label-info hidden-phone"><a href="#">Accesories</a></span><span class="label label-info hidden-phone"><a href="#">Clothings</a></span><span class="label label-important hidden-phone"><a href="#">NBS</a></span><span class="label label-important hidden-phone"><a href="#">SCE</a></span></span>
+    <table class="table table-bordered t-items">
+        <tbody>
+          <tr>
+            <td><a href="item_fixed_buyerview.html"><img class="span3" src="assets/img/thumb1.jpg"></a></td>
+            <td><h4><a href="item_fixed_buyerview.html">Espresso and Cappuccino Maker</a></h4>Enjoy delicious espresso made your way with De'Longhi's pump espresso and cappuccino maker. You can choose to brew ground espresso or E.S.E pods with the unique patented dual filter holder.</td>
+            <td><span class="bid-latest">S$ 200.9 <abbr title="This is the highest bid made for this item ">(Fixed price)</abbr></span><br><span class="bid-stock">2 Items in stock</span><br><!--<span class="bid-addinfo">Bid starting at S$ 200<br>Has been bidded 10 times</span>--></td>
+          </tr>
+        </tbody>
+      </table>
+      
+    <div class="pagination pull-right">
+      <ul>
+        <li><a href="#">Prev</a></li>
+        <li class="active">
+          <a href="#">1</a>
+        </li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">Next</a></li>
+      </ul>
     </div>
-    
-    <div class="s-shade"></div>
-    
-    <!-- <span class="label label-inverse">Recent items ></span> -->
-    <br>
-    <ul class="thumbnails">
-      <li class="span3">
-        <a href="#" class="thumbnail">
-          <div class="item-overlay"></div>
-          <img src="./assets/img/thumb1.jpg" alt="">
-        </a>
-        <p class="item-title">Espresso and Cappuccino Maker</p>
-        <p class="item-price">Latest Bid: $59</p>
-       
-      </li>
-	</ul>
+      
     </div> <!-- /container -->
     	
 <footer class="hidden-phone">
@@ -294,12 +287,15 @@
     <script src="./assets/js/bootstrap-alert.js"></script>
     <script src="./assets/js/bootstrap-button.js"></script>
     <script src="./assets/js/script.js"></script>
-    <script type="text/javascript">
+        <script type="text/javascript">
 		// COPY PRODUCT *MALES
-		var a = $('.thumbnails');
-		var b = a.html();
+		var a = $('table').children('tbody');
 		
-		for (i=1; i<8; i++){a.append(b);};	
+		function genrand(x){
+			return Math.ceil(Math.random()*x)};
+			
+		for (i=2; i<8; i++){
+			a.append('<tr><td><a href="item_bidding_buyerview.html"><img class="span3" src="assets/img/thumb'+genrand(3)+'.jpg"></a></td><td><h4><a href="item_bidding_buyerview.html">Espresso and Cappuccino Maker</a></h4>Enjoy delicious espresso made your way with DeLonghis pump espresso and cappuccino maker. You can choose to brew ground espresso or E.S.E pods with the unique patented dual filter holder.</td><td><span class="bid-latest">S$ '+genrand(1000)+' <abbr title="This is the highest bid made for this item ">(Latest bid)</abbr></span><br><span class="bid-stock">'+genrand(10)+' Items in stock</span><br><span class="bid-addinfo">Bid starting at S$'+genrand(200)+'<br>Has been bidded '+genrand(10)+' times</span></td></tr>')};	 
     </script>
   </body>
 

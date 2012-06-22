@@ -11,7 +11,7 @@
 		  margin:50px auto 50px -60px;
 		  border-radius:10px;
 		  width:1059px;
-		  background: url(assets/img/banner4.jpg) no-repeat;
+		  background: url(<?php echo base_url(); ?>assets/img/banner4.jpg) no-repeat;
 		  height:267px;
 	  }
 	
@@ -19,7 +19,7 @@
 	.s-shade{
 		width:940px;
 		height:10px;
-		background:url(assets/img/s-shade.jpg);
+		background:url(<?php echo base_url(); ?>assets/img/s-shade.jpg);
 		margin-bottom:30px;}
 		
 	.t-head{
@@ -45,7 +45,7 @@
 		}
 		
 	.item-overlay{
-		background: url(assets/img/glossy.png);
+		background: url(<?php echo base_url(); ?>assets/img/glossy.png);
 		width:198px;
 		height:198px;
 		position:absolute;}
@@ -72,7 +72,7 @@
     <?php
     include "categories.php";
     ?>
-	<!--<img class="banner" src="assets/img/banner4.jpg">-->
+	<!--<img class="banner" src="<?php echo base_url(); ?>/assets/img/banner4.jpg">-->
     <div class="banner"></div>
     
     <div class="t-head">
@@ -88,7 +88,7 @@
       <li class="span3">
         <a href="#" class="thumbnail">
           <div class="item-overlay"></div>
-          <img src="./assets/img/thumb1.jpg" alt="">
+          <img src="<?php echo base_url(); ?>/assets/img/thumb1.jpg" alt="">
         </a>
         <p class="item-title">Espresso and Cappuccino Maker</p>
         <p class="item-price">Latest Bid: $59</p>

@@ -1,0 +1,26 @@
+Functionalities to do:
+Homepage:
+	Sign in
+	Sign out
+	Register
+	Forget pass
+	Get newest
+	Get most bid
+	Get expiring soon
+	
+Listing page:
+	Search
+	Listing
+
+User's action:
+	Post new item
+	Edit own item
+	Bidder place a new bid
+	Bidder edit a bid
+	Seller accept a bid
+
+User's panel:
+	Bids tracking
+	Items tracking
+	Edit profile
+	

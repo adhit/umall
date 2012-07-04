@@ -1,127 +1,178 @@
-<html>
-	<head>
-		<title>UMall</title>
-	</head>
-	<body>
-		<h1>User</h1>
-		<?php if(isset($user)) {
-		if(isset($in_data["msg"]["signin_success"])) echo "Success: ".$in_data["msg"]["signin_success"]."<br/>";
-		echo "user: "; print_r($user); ?>
-		<form action="<?php echo site_url(); ?>/home/signout" method="post">
-			<input type="submit" name="signout" value="Sign Out">
-		</form>
-		<?php } else { ?>
-		<form action="<?php echo site_url(); ?>/home/signin" method="post">
-			<input type="hidden" name="prev" value="<?php echo $crnt; ?>">
-			Email:<input type="text" name="email">@ntu.edu.sg<br/>
-			Pass:  <input type="password" name="pass"><br/>
-			<input type="submit" name="signin" value="Sign In">
-			<?php
-				if(isset($in_data["msg"]["signin_error"])) echo "Error: ".$in_data["msg"]["signin_error"]."<br/>";
-			?>
-		</form>
-		<?php } ?>
+﻿<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="utf-8">
+    <title>U-Mall</title>
+<?php include "includes/header_include_assets.php"; ?>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+  
+<?php include "includes/header.php"; ?>
+    <link href="<?php echo base_url(); ?>/assets/css/product.css" rel="stylesheet">
+  
+	<br><br><br>
+    
+    <div class="container">
+	
+    <?php
+    include "includes/categories.php";
+    ?>
+	
+	<?php
+	if(isset($msg['global_info'])) { ?>
+    <div class="alert alert-info alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <?php echo $msg['global_info']; ?>
+    </div>
+	<?php } ?>
+	<?php
+	//print_r($msg);
+	if(isset($msg['global_success'])) { ?>
+    <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <?php echo $msg['global_success']; ?>
+    </div>
+	<?php } ?>
+	<?php
+	if(isset($msg['global_error'])) { ?>
+    <div class="alert alert-error alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <?php echo $msg['global_error']; ?>
+    </div>
+	<?php } ?>
+	
+	<span class="result-queries"><span class="result-text">Related tags : &nbsp;</span>
+	<?php
+	if(!isset($the_tags)||!$the_tags) echo "no tags";
+	else {
+		foreach($the_tags as $val) if($val['special']=='no') echo "<span class=\"label label-info hidden-phone\"><a href=\"".site_url()."/item/listing/tag/".$val['tagID']."\">".ucfirst($val['tagname'])."</a></span> ";
+		foreach($the_tags as $val) if($val['special']=='yes') echo "<span class=\"label label-important hidden-phone\"><a href=\"".site_url()."/item/listing/tag/".$val['tagID']."\">".ucfirst($val['tagname'])."</a></span> ";
+	}
+	?>
+	</span>
+	
+		<table class="table table-bordered t-items">
 		
-		<h1>Start of page</h1>
-		<?php
-		if($status=='no_item') {
-		?>
-			Item is not found in database. You can find an item <a href="<?php echo site_url(); ?>/item/listing">here</a>
-		<?php
-		} else {
-			echo 'item: ';
-			print_r($item);
-			echo '<br/><br/>tags: ';
-			print_r($tags);
-			echo '<br/><br/>';
-			echo "<h1>Bidding Area</h1>";
-			echo "<h2>".$role."</h2>";
-			if($role=='guest') echo 'Please sign in to view bids';
-			else if($role=='bidder') { //role bidder
-				if($my_bid) {
-					echo "My bid: ".$my_bid['qty']." @".$my_bid['price']." ";
-					if($my_bid['partial']=='yes') echo "partial; ";
-					else echo "non-partial; ";
-					echo 'status: ';
-					if($my_bid['approved']=='yes') echo $my_bid['approved_qty']." accepted";
-					echo "<br>Change your bid: ";
-				}
-				else echo "No bid yet.<br>Bid now: ";
-				if($status=="expired") echo "The item has been expired. You can't change your bid or make a new bid";
-				else {
-		?>
-			<form action="<?php echo site_url(); ?>/item/bid" method="post">
-				<input type="hidden" name="itemID" value="<?php echo $itemID; ?>" >
-				<input type="hidden" name="prev" value="<?php echo $crnt; ?>" >
-				
-				<input type="text" name="qty" <?php if(isset($in_data['form']['qty'])) echo "value=\"".$in_data['form']['qty']."\""; ?>> @ 
-				$<input type="text" name="price" <?php if(isset($in_data['form']['price'])) echo "value=\"".$in_data['form']['price']."\""; ?>>
-				<select name="partial">
-					<option value="yes" selected>Partial</option>
-					<option value="no" <?php if(isset($in_data['form']['qty'])) echo $in_data['form']['qty']; ?>>Non-Partial</option>
-				</select>
-				<input type="submit" name="bid" value="Bid!"><br/>
+		  <tr>
+			<td class="thumb"><img class="span3" src="<?php echo base_url()."/pictures/".$item['image']; ?>"></td>
+			<td class="desc">
+				<h4><?php echo character_limiter($item['name'],48); ?></h4><?php echo character_limiter($item['description'],360); ?>
+				<div class="action-group">
+					<form class="form-inline">
+					
+					<?php
+					if($type='fixed') {
+						if($role=='guest') {
+							if($status=='expired') {
+							}
+							else {
+							}
+						}
+						else if($role=='seller') {
+							if($status=='expired') {
+							}
+							else {
+							}
+						}
+						else if($role=='guest') {
+							if($status=='expired') {
+							}
+							else {
+							}
+						}
+					}
+					else if($type='bid') {
+						if($role=='guest') {
+							if($status=='expired') {
+							}
+							else {
+							}
+						}
+						else if($role=='seller') {
+							if($status=='expired') {
+							}
+							else {
+							}
+						}
+						else if($role=='guest') {
+							if($status=='expired') {
+							}
+							else {
+							}
+						}
+					}
+					?>
+					
+					<button class="btn btn-primary btn-buynow disabled" disabled>Buy now</button><br>
+					<span class="tot-price">Click the button to share your contact with the seller</span></span>
+					</form>
+				</div>   
+			</td>
+			<td>
+				<span class="detailed-info">Detailed Information</span>
 				<?php
-					if(isset($in_data['msg']['bid_success'])) echo "Bid Success: ".$in_data['msg']['bid_success']."<br/>";
-					if(isset($in_data['msg']['bid_error'])) echo "Bid Error: ".$in_data['msg']['bid_error']."<br/>";
-					if(isset($in_data['msg']['qty_error'])) echo "Quantity Error: ".$in_data['msg']['qty_error']."<br/>";
-					if(isset($in_data['msg']['price_error'])) echo "Price Error: ".$in_data['msg']['price_error']."<br/>";
+				if($type=="fixed") {
 				?>
-			</form>
-		<?php
-				}
-				if($bids) {
-					echo "<table><tr><th>No</th><th>Qty</th><th>Price</th><th>Partial</th><th>Status</th></tr>";
-					$i=0;
-					foreach($bids as $bid) {
-						$i++;
-						echo "<tr>";
-						echo "<td>".$i."</td>";
-						echo "<td>".$bid['qty']."</td>";
-						echo "<td>".$bid['price']."</td>";
-						echo "<td>".$bid['partial']."</td>";
-						if($bid['approved']=="yes") echo "<td>Accepted (".$bid['approved_qty'].")</td>";
-						else echo "<td><Pending</td>";
-						echo "</tr>";
-					}
-					echo "</table>";
-				}
-				else echo "No bids yet";
-			} else { //role seller
-				if($bids) {
-					if(isset($in_data['msg']['accept_success'])) echo 'Success: '.$in_data['msg']['accept_success']."<br/>";
-					if(isset($in_data['msg']['accept_error'])) echo 'Error: '.$in_data['msg']['accept_error']."<br/>";
-					echo "<table><tr><th>No</th><th>Qty</th><th>Price</th><th>Partial</th><th>Accept</th><th>Name</th><th>Email</th><th>Phone</th></tr>";
-					$i=0;
-					foreach($bids as $bid) {
-						$i++;
-						echo "<tr>";
-						echo "<td>".$i."</td>";
-						echo "<td>".$bid['qty']."</td>";
-						echo "<td>".$bid['price']."</td>";
-						echo "<td>".$bid['partial']."</td>";
-						if($bid['approved']=="yes") {
-							echo "<td>Accepted (".$bid['approved_qty'].")</td>";
-							echo "<td>".$bid['name']."</td>";
-							echo "<td>".$bid['email']."</td>";
-							if($bid['show']=='yes') echo "<td>".$bid['contactNumber']."</td>";
-							else echo "<td>not shown</td>";
-						}
-						else {
-							echo "<td><a href=\"".site_url()."/item/accept/".$bid['bidID']."\">Accept</a></td>";
-							echo "<td>?</td>";
-							echo "<td>?</td>";
-							echo "<td>?</td>";
-						}
-						echo "</tr>";
-					}
-					echo "</table>";
-				}
-				else echo "No bids yet";
-		?>
-		<?php
-			}
-		}
-		?>
-	</body>
+				
+					<table class="table table-condensed detailed-table">
+						<tr><td class="detail-item" rowspan=2>Posted:</td><td><?php echo timespan_shorten(timespan(human_to_unix($item['timeCreated']),$now))." ago"; ?></td></tr>
+						<tr><td>(<?php echo $item['timeCreated']." SGT"; ?>)</td></tr>
+						<tr><td class="detail-item" rowspan=2>Time left:</td><td><?php echo timespan_shorten(timespan($now,human_to_unix($item['expiryDate']))); ?></td></tr>
+						<tr><td>(<?php echo $item['expiryDate']." SGT"; ?>)</td></tr>
+						<tr><td class="detail-item">Price:</td><td>S$ <?php echo $item['price']; ?> <abbr title="Fixed priced item can be bought right away">(Fixed price)</abbr></td></tr>
+						<tr><td class="detail-item">Seller:</td><td><?php echo $seller['username']; ?></td></tr>
+						<tr><td class="detail-item">Full name:</td><td><?php echo $seller['name']; ?></td></tr>
+						<tr><td class="detail-item">Email:</td><td><?php echo $seller['email']; ?></td></tr>
+						<tr><td class="detail-item">Phone:</td><td><?php if($seller['show']=='yes') echo $seller['contactNumber']; else echo "not shown"; ?></td></tr>
+						<tr><td>&nbsp;</td></tr>
+						<?php if($role=='seller') echo "<tr><td colspan=\"2\"><a class=\"view-bidding hid\" href=#><span>Show interested users</span><i class=\"icon-mini-triangle\"></i></a></td></tr>"; ?>
+					</table>
+					
+					<?php if($role=='seller') { ?>
+					
+						<table class="table-condensed fixed-table">
+							<?php if(isset($bids)&&$bids) { ?>
+								<tr><td>Username</td><td>Full name</td></tr>
+							<?php 
+								foreach($bids as $val) {
+									echo "<tr><td>".$val['username']."</td><td>".$val['name']."</td></tr>";
+								}
+							?>
+							<?php } else { ?>
+								<tr><td>No potential buyers yet</td></tr>
+							<?php } ?>
+						</table>
+					
+					<?php } ?>
+				
+				<?php }
+				else if($type=="bid") {
+				?>
+				
+				<?php }
+				?>
+			</td>
+		  </tr>
+		
+		</table>
+	
+	</div> <!-- /container -->
+	
+<?php //include "includes/footer.php"; ?>
+
+
+<div class="footerphone visible-phone"><hr>© NTU Student Union 2012</div>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <?php
+    include "includes/footer_include_assets.php";
+    ?>
+  </body>
+
 </html>

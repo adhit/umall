@@ -63,7 +63,11 @@ class Bid_model extends Model {
 	}
 	
 	function get_bid_join_user($data) {
-		$this->db->from('um_bid')->join('um_user','um_bid.userID = um_user.userID')->where($data);
+		$this->db->from('um_bid')->join('um_user','um_bid.userID = um_user.userID');
+		$this->db->select('*,um_bid.timeEdited AS timeLatest');
+		$this->db->where($data);
+		$this->db->order_by("price", "desc");
+		$this->db->order_by("timeLatest", "desc");
 		$q=$this->db->get();
 		if($q->num_rows()==0) return false;
 		else return $q->result_array();
@@ -89,16 +93,26 @@ class Bid_model extends Model {
 		if(!$q) return false; 
 		else return $q[0];
 	}
-	
+
 	function accept($bid,$item) {
 		$timestamp=time();
 		$datetime=date("Y-m-d H:m:s",$timestamp);
 		$newbid=$bid;
 		$newbid['approved']='yes';
-		$newbid['approved_qty']=$bid['qty'];
-		$newbid['timeEdited']=$datetime;
+		//$newbid['timeEdited']=$datetime;
 		$this->db->where($bid);
 		$this->db->update('um_bid', $newbid);
 	}
+	
+	function reject($bid,$item) {
+		$timestamp=time();
+		$datetime=date("Y-m-d H:m:s",$timestamp);
+		$newbid=$bid;
+		$newbid['approved']='rejected';
+		//$newbid['timeEdited']=$datetime;
+		$this->db->where($bid);
+		$this->db->update('um_bid', $newbid);
+	}
+
 }
 ?>

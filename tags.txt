@@ -1,0 +1,12 @@
+1. book
+2. PC
+3. electonics
+4. CD/DVD
+5. bike&parts
+6. mobile
+7. phone acc
+8. music&sport
+9. bulk-sized
+10. appliances
+11. room rent
+12. service

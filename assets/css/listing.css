@@ -1,0 +1,68 @@
+/*table format */
+.t-items{
+	margin-top:30px;
+	color:#000;}
+.t-items th{
+	font-size:20px;
+	font-weight:bold;
+	text-align:center;}
+.t-items td{
+	padding: 20px;}
+.t-items td:first-child{ /*thumbnail*/
+	margin:auto;
+	padding-right:0px;
+	width:125px;
+	height:125px;
+	vertical-align:middle;}
+.t-items td:first-child img{ 
+	max-height:125px;
+	max-width:125px;
+	display:block;
+	margin:auto;}
+.t-items td:nth-child(2){
+	width:400px;
+	border-left:none;
+	text-align:left;}
+.t-items td:nth-child(2) h4 a{
+	font-size:15px;
+	line-height:30px;
+	color:#000;
+	cursor:pointer;
+	}
+.t-items td:nth-child(3){
+	width:150px;
+	border-left:none;}
+
+/*price comparison in bidstracking*/
+.price-comparison-table{
+	width:200px;}
+.price-comparison-table tr td:first-child,.price-comparison-table tr td:last-child{
+	border:none;
+	padding:3px;
+	font-size:px;
+	color:#111;
+	width:30px;
+	height:20px;}
+.highest{
+	color:#666;
+	font-size:12px;}
+
+/*others*/
+.bid-latest{
+	font-size:15px;
+	font-weight:bold;
+	line-height:30px;}
+.bid-latest abbr{
+	font-size:12px;
+	font-weight:normal;
+	color:#666;}
+.bid-addinfo{
+	color:#666;}
+.bid-addinfo span.space{
+	height:6px;
+	width:100%;
+	display:block;}
+.result-queries{
+	margin-top:30px;
+	display:block;
+	font-size:15px;}

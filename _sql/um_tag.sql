@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 10, 2012 at 03:20 AM
+-- Generation Time: Jul 03, 2012 at 09:17 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -38,25 +38,22 @@ CREATE TABLE IF NOT EXISTS `um_tag` (
 --
 
 INSERT INTO `um_tag` (`tagID`, `tagname`, `special`, `timeCreated`) VALUES
-(1, 'appliances', 'no', '2011-12-11 00:00:00'),
-(2, 'arts', 'no', '2011-12-11 00:00:00'),
-(3, 'beauty accessories', 'no', '2012-01-11 00:00:00'),
-(4, 'books', 'no', '2011-12-11 00:00:00'),
-(5, 'CD/DVD', 'no', '2012-01-11 00:00:00'),
-(6, 'clothings', 'no', '2011-12-11 00:00:00'),
-(7, 'computers', 'no', '2011-12-11 00:00:00'),
-(8, 'electronics', 'no', '2011-12-11 00:00:00'),
-(9, 'electronic accessories', 'no', '2012-01-11 00:00:00'),
-(10, 'handphones', 'no', '2011-12-11 00:00:00'),
-(11, 'jewelries', 'no', '2011-12-11 00:00:00'),
-(12, 'kitchen utensils', 'no', '2012-01-11 00:00:00'),
-(13, 'NBS', 'yes', '2011-12-11 00:00:00'),
-(14, 'religion', 'no', '2012-01-11 00:00:00'),
-(15, 'SCE', 'yes', '2011-12-11 00:00:00'),
-(16, 'shoes', 'no', '2011-12-11 00:00:00'),
-(17, 'sports', 'no', '2011-12-11 00:00:00'),
-(18, 'stationaries', 'no', '2012-01-11 00:00:00'),
-(19, 'watches', 'no', '2011-12-11 00:00:00'),
+(1, 'book', 'no', '2011-12-11 00:00:00'),
+(2, 'PC', 'no', '2011-12-11 00:00:00'),
+(3, 'electronics', 'no', '2012-01-11 00:00:00'),
+(4, 'CD/DVD', 'no', '2011-12-11 00:00:00'),
+(5, 'bike', 'no', '2012-01-11 00:00:00'),
+(6, 'mobile', 'no', '2011-12-11 00:00:00'),
+(7, 'phone acc', 'no', '2011-12-11 00:00:00'),
+(8, 'music', 'no', '2011-12-11 00:00:00'),
+(9, 'sport', 'no', '2012-01-11 00:00:00'),
+(10, 'bulk-sized', 'no', '2011-12-11 00:00:00'),
+(11, 'appliances', 'no', '2011-12-11 00:00:00'),
+(12, 'room rent', 'no', '2012-01-11 00:00:00'),
+(14, 'service', 'no', '2012-07-01 00:00:00'),
+(13, 'game', 'no', '2012-07-02 00:00:00'),
+(18, 'NBS', 'yes', '2012-01-11 00:00:00'),
+(19, 'SCE', 'yes', '2011-12-11 00:00:00'),
 (20, 'SBS', 'yes', '2012-06-08 06:40:27'),
 (21, 'ABC', 'yes', '2012-06-08 06:40:27'),
 (22, 'ADM', 'yes', '2012-06-08 06:40:27'),
@@ -71,7 +68,9 @@ INSERT INTO `um_tag` (`tagID`, `tagname`, `special`, `timeCreated`) VALUES
 (31, 'NIE', 'yes', '2012-06-08 06:40:27'),
 (32, 'CAC', 'yes', '2012-06-08 06:40:27'),
 (33, 'Sports Club', 'yes', '2012-06-08 06:40:27'),
-(34, 'WSC', 'yes', '2012-06-08 06:40:27');
+(34, 'WSC', 'yes', '2012-06-08 06:40:27'),
+(15, 'luxury', 'no', '2012-07-02 05:13:31'),
+(16, 'clothing', 'no', '2012-07-01 05:13:36');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -1,0 +1,52 @@
+/*table format */
+.t-items{
+	margin-top:30px;
+	color:#000;}
+.t-items th{
+	font-size:20px;
+	font-weight:bold;
+	text-align:center;}
+.t-items td{
+	padding: 20px;}
+.t-items td:first-child{ /*thumbnail*/
+	width: 100px;
+	margin:auto;
+	padding-right:0px;}
+.t-items td:first-child img{ 
+	max-height:125px;
+	max-width:125px;
+	width:inherit;
+	}
+.t-items td:nth-child(2){
+	width:400px;
+	border-left:none;
+	text-align:left;}
+.t-items td:nth-child(2) h4 a{
+	font-size:15px;
+	line-height:30px;
+	color:#000;
+	cursor:pointer;
+	}
+.t-items td:nth-child(3){
+	width:150px;
+	border-left:none;}
+
+/*others*/
+.bid-latest{
+	font-size:15px;
+	font-weight:bold;
+	line-height:30px;}
+.bid-latest abbr{
+	font-size:12px;
+	font-weight:normal;
+	color:#666;}
+.bid-addinfo{
+	color:#666;}
+.bid-addinfo span.space{
+	height:6px;
+	width:100%;
+	display:block;}
+.result-queries{
+	margin-top:30px;
+	display:block;
+	font-size:15px;}

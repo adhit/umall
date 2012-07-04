@@ -1,26 +1,46 @@
 Functionalities to do:
 Homepage:
-	Sign in
-	Sign out
-	Register
-	Forget pass
-	Get newest
-	Get most bid
-	Get expiring soon
+D	Sign in
+D	Sign out
+D	Register
+D	Activate
+D	Forget pass
+D	Get newest
+D	Get most bid
+D	Get expiring soon
 	
 Listing page:
-	Search
-	Listing
+D	Listing
+D	Search
 
 User's action:
-	Post new item
-	Edit own item
-	Bidder place a new bid
-	Bidder edit a bid
-	Seller accept a bid
+D	Post new item
+D	Edit own item
+D	View bid item as buyer
+D	View fixed item as buyer
+D	View bid item as seller
+D	View fixed item as seller
+D	Bidder place a new bid
+D	Bidder edit a bid
+D	Buyer place I'm interested notice
+D	Seller reject a bid
+D	Seller accept a bid
+D	Seller delete own item
 
 User's panel:
 	Bids tracking
 	Items tracking
-	Edit profile
+D	Edit profile
+D	Change password
+	Notification
 	
+Gotchas:
+D	Items with deleted/deactivated user should not keep showing in listing
+D	In edit item, type input should not be disabled
+D	bidguest_view and fixedguest_view
+D	Registration email
+D	Sign in view
+D	No links in home view items
+	No links in seller in item view
+
+Item status: deleted, hidden, expired, active

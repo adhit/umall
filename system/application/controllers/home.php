@@ -31,15 +31,24 @@ class Home extends Controller {
 		}
 		//Setting message data
 		$msg=array();
-		$in_data=array();
-		if($this->session->flashdata('in_data')) {
-			$data['in_data']=$this->session->flashdata('in_data');
-			print_r($data);
-			$msg=$data['in_data']['msg'];
-			$in_data=$data['in_data'];
+		if($this->session->flashdata('msg')) {
+			$data['msg']=$this->session->flashdata('msg');
+			//print_r($data);
+			$msg=$data['msg'];
 		}
+		$data['crnt']="/home";
+		//Setting tags
+		$this->load->model('Item_model');
+		$data['tags']=$this->Item_model->get_all_tags();
 		//Opening End-------
-	
+		
+		//Get popular
+		$data['popular']=$this->Item_model->get_top4_mostbid();
+		$data['newest']=$this->Item_model->get_top4_newest();
+		$data['barely']=$this->Item_model->get_top4_barely();
+		
+		$data['now']=time();
+		
 		$this->load->view('home_view',$data);
 	}
 	
@@ -55,35 +64,48 @@ class Home extends Controller {
 			SESSION SET
 			in_data
 				msg<array>: containing success or error messages
-				prev: the last method responsible (this)
 			user<array>: containing user record data
 		*/
 		
 		$data=array();
-		$data["prev"]="/home/signin";
 		$email=$this->input->post('email');
 		$pass=$this->input->post('pass');
+		$valid=true;
 		if(!$email||!$pass) {
-			$data["msg"]["signin_error"]="Please fill in valid email and password";
+			$data["msg"]["global_error"]="Please fill in valid email and password";
+			$valid=false;
 		}
 		else {
 			$this->load->model("User_model");
 			$temp=$this->User_model->signin($email."@ntu.edu.sg",md5("SapiDanTemp".$pass));
 			if($temp) {
 				$this->session->set_userdata("user",$temp);
-				$data["msg"]["signin_success"]="Success";
+				$data["msg"]["global_success"]="Welcome to UMall, ".$temp['name']." :)";
 			}
-			else $data["msg"]["signin_error"]="No match found. Please try again";
+			else {
+				$temp=$this->User_model->getone(array('email'=>$email."@ntu.edu.sg",'enabled !='=>'pending'));
+				if(!$temp) $data["msg"]["global_error"]="No match found. Please try again";
+				else if($temp['enabled']=='no') $data["msg"]["global_error"]="The user is currently banned. Please contact administrator.";
+				else if($temp['pass']!=md5("SapiDanTemp".$pass)) $data["msg"]["global_error"]="Password mismatch. Please try again";
+				$valid=false;
+			}
 		}
-		$this->session->set_flashdata("in_data",$data);
-		$redir="/home";
-		if($this->input->post('prev')) $redir=$this->input->post('prev');
-		redirect(site_url().$redir);
+		if($valid) {
+			$this->session->set_flashdata("msg",$data["msg"]);
+			$redir="/home";
+			if($this->input->post('prev')) $redir=$this->input->post('prev');
+			redirect(site_url().$redir);
+		}
+		else {
+			$this->load->view('signin_view',$data);
+		}
 	}
 	
 	function signout() {
 		$this->session->unset_userdata("user");
-		redirect(site_url()."/home");		
+		$data['msg']['global_info']='You have been signed out successfully';
+		$this->session->set_flashdata("msg",$data["msg"]);
+		redirect(site_url()."/home");
 	}
 }
 

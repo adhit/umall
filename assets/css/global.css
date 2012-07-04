@@ -1,3 +1,13 @@
+body{ /*DISINI GW UBAH date:29/6 */
+	overflow-y: scroll; }
+
+.color-green{
+	color:#48b300;}
+.color-warning{
+	color:#f68d1c;}
+.color-gray{
+	color:#888;}
+
 /*Logo navbar */
 a.logo{
   background: url(../img/logo.png) no-repeat;
@@ -12,6 +22,11 @@ a.logo-mid{
 a.logo-left{
    margin-left:20px;}
   
+/* header*/
+.content-header{
+	text-align:center;
+	padding:30px;}
+	
 /* search*/
 .searchbar{
 	position:absolute;
@@ -39,20 +54,33 @@ a.logo-left{
 .login .icon-user{
 	margin: 1px 10px;}
 .btn-signin{
-	margin-top:-45px;
+	margin-top:-39px;
 	margin-left:135px;}
 .btn-signup{
 	margin-left:54px;
 	font-weight:bold;}
 .input-email-panel{
 	width:118px;}
-.signuptitle{
+/*.signuptitle{
 	background:#f3b2b4;
 	margin-bottom:20px;
 	margin-top:-10px;
 	margin-left:-10px;
 	padding: 2px 10px;
-	box-shadow:1px 1px 1px #888;}
+	box-shadow:1px 1px 1px #888;}*/
+.signuptitle{
+	color: #777;
+	font-size:16px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .6);
+	border-bottom: 1px solid #E2E2E2;
+	box-shadow: 0 1px 0 white;
+	padding: 13px 10px;
+	margin: -10px -10px 10px -10px;
+	}
+.signuptitle strong{
+	color: #333;
+	font-weight:500;
+}
 .arrow{
 	width:22px;
 	height:16px;
@@ -118,13 +146,37 @@ ul.p-group > li{
 ul.p-group > a > li{
 	padding:10px;
 	list-style:none;}
-ul.p-group  a{
+ul.p-group > a{
 	text-decoration:none;
 	color:#000;}
+a.forgotpass{
+	color:#999;
+	font-size:11px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .6);
+	margin-top:6px;
+	margin-left:3px;
+	cursor:pointer;}
+ul.p-group a.forgotpass:hover{
+	text-decoration: underline;}
+ul.p-group li .pricerange{
+	margin-top:-5px;
+	display:block;}
 ul.p-group > li.signin{
-	height:100px;}
+	height:92px;
+	/*background:-webkit-linear-gradient(top,white 0,#DDD 400%);
+	background: -moz-linear-gradient(top,white 0,#DDD 100%);
+	background: -ms-linear-gradient(top,white 0,#DDD 100%);
+	background: -o-linear-gradient(top,white 0,#DDD 100%);
+	background: linear-gradient(top,white 0,#DDD 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#dddddd',GradientType=0);*/}
 ul.p-group > li.signup{
-	height:150px;}
+	height:188px;
+	background:-webkit-linear-gradient(top,white 0,#DDD 100%);
+	background: -moz-linear-gradient(top,white 0,#DDD 500%);
+	background: -ms-linear-gradient(top,white 0,#DDD 500%);
+	background: -o-linear-gradient(top,white 0,#DDD 500%);
+	background: linear-gradient(top,white 0,#DDD 500%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#dddddd',GradientType=0);}
 ul.p-hover > a > li:hover{
 	background: #01a2f8; /* Old browsers */
 	background: -moz-linear-gradient(top, #01a2f8 0%, #0090c9 100%, #207cca 100%, #2989d8 100%, #0082c8 100%); /* FF3.6+ */
@@ -151,20 +203,43 @@ ul.p-hover li i:first-child{
 	list-style:none;
 	float:left;
 	width:105px;}
+.tags-group li input{ 
+	margin-top:-1px;}
 .tags-group li:last-child{
 	padding-bottom:10px;}
+.multipleselection{
+	margin-left:80px;
+	margin-top:-20px;}
+.sortby{
+	margin-left:80px;
+	width:130px;
+	margin-top:-30px;
+	padding-bottom:-60px;}
+#amountmin,#amountmax{
+	border:none;
+	box-shadow:none;
+	margin-top:6px;
+	box-shadow:none;
+	border:none;
+	}
+#amountmax{
+	width:30px;}
+#amountmin{
+	width:29px;}	
+	
+#slider-range{
+	width:202px;
+	margin-left:7px;
+	margin-bottom:10px;
+	box-shadow:none;
+	color:#fff;}
 .p-left{
 	left:-300px;}
 .p-right{
 	right:-300px;}
-.trig{
-	width:5px;
-	height:5px;
-	border: #48b300 solid 2px;
-	background:#fff;
-	margin-right:5px;
-	border-radius:10px;
-	display: inline-block;}
+	
+	/* DISINI GW UBAH (delete trig)*/
+	
 .icon-notif{
 	width:14px;
 	height:12px;

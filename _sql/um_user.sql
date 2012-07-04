@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 10, 2012 at 03:20 AM
+-- Generation Time: Jul 03, 2012 at 09:17 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `um_user` (
   `timeCreated` datetime NOT NULL,
   `timeEdited` datetime NOT NULL,
   PRIMARY KEY (`userID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `um_user`
@@ -47,17 +47,16 @@ CREATE TABLE IF NOT EXISTS `um_user` (
 
 INSERT INTO `um_user` (`userID`, `username`, `pass`, `name`, `email`, `enabled`, `contactNumber`, `show`, `type`, `tagID`, `timeCreated`, `timeEdited`) VALUES
 (2, 'admin', 'f117b1c43ff2a7aa7883c193b14c8c8b', 'Administrator', 's.pradhitya@gmail.com', 'yes', '87654320', 'yes', 'admin', 0, '2011-12-11 00:00:00', '2011-12-11 00:00:00'),
-(3, 'ichope', '44a482a4f1209449d893a62d3df8408f', '', 'reza0008@ntu.edu.sg', 'yes', '96449608', 'yes', 'student', 0, '2012-01-16 12:53:03', '2012-01-16 12:53:03'),
-(4, 'nbsclub', 'f117b1c43ff2a7aa7883c193b14c8c8b', 'NBS Club', 'nbs@ntu.edu.sg', 'yes', '88888888', 'yes', 'special', 13, '2011-12-11 00:00:00', '2011-12-11 00:00:00'),
+(3, 'ichope', '44a482a4f1209449d893a62d3df8408f', 'Reza Raditya', 'reza0008@ntu.edu.sg', 'yes', '96449608', 'yes', 'student', 0, '2012-01-16 12:53:03', '2012-01-16 12:53:03'),
+(4, 'nbsclub', 'f117b1c43ff2a7aa7883c193b14c8c8b', 'NBS Club', 'nbsclub@ntu.edu.sg', 'yes', '88888888', 'yes', 'special', 18, '2011-12-11 00:00:00', '2011-12-11 00:00:00'),
 (5, 'otherclub', 'f117b1c43ff2a7aa7883c193b14c8c8b', 'Other Club', 'otherclub@ntu.edu.sg', 'no', '66666666', 'yes', 'special', 0, '2011-12-11 00:00:00', '2011-12-11 00:00:00'),
-(6, 'sceclub', 'f117b1c43ff2a7aa7883c193b14c8c8b', 'SCE Club', 'sceclub@ntu.edu.sg', 'yes', '77777777', 'yes', 'special', 15, '2011-12-11 00:00:00', '2011-12-11 00:00:00'),
-(7, 'user0001', 'f117b1c43ff2a7aa7883c193b14c8c8b', 'User One', 'user0001@ntu.edu.sg', 'yes', '11111111', 'yes', 'student', 0, '2011-12-11 00:00:00', '2011-12-11 00:00:00'),
+(6, 'sceclub', 'f117b1c43ff2a7aa7883c193b14c8c8b', 'SCE Club', 'sceclub@ntu.edu.sg', 'yes', '77777777', 'yes', 'special', 19, '2011-12-11 00:00:00', '2011-12-11 00:00:00'),
+(7, 'user0001', 'f117b1c43ff2a7aa7883c193b14c8c8b', 'First User', 'user0001@ntu.edu.sg', 'yes', '11111111', 'yes', 'student', 0, '2011-12-11 00:00:00', '2012-06-28 10:06:14'),
 (8, 'user0002', 'f117b1c43ff2a7aa7883c193b14c8c8b', 'User Two', 'user0002@ntu.edu.sg', 'yes', '22222222', 'yes', 'student', 0, '2011-12-11 00:00:00', '2011-12-11 00:00:00'),
 (9, 'user0003', 'f117b1c43ff2a7aa7883c193b14c8c8b', 'User Three', 'user0003@ntu.edu.sg', 'yes', '33333332', 'yes', 'student', 0, '2011-12-11 00:00:00', '2011-12-11 00:00:00'),
 (10, 'user0004', 'f117b1c43ff2a7aa7883c193b14c8c8b', 'User Four', 'user0004@ntu.edu.sg', 'yes', '44444444', 'yes', 'student', 0, '2011-12-11 00:00:00', '2011-12-11 00:00:00'),
 (11, 'user0005', 'f117b1c43ff2a7aa7883c193b14c8c8b', 'User Five', 'user0005@ntu.edu.sg', 'no', '55555555', 'yes', 'student', 0, '2011-12-11 00:00:00', '2011-12-11 00:00:00'),
-(12, 'rein0002', '6bb00b2b72300e103b04b25d77ff9993', 'Reinardus Pradhitya', 'rein0002@ntu.edu.sg', 'yes', '83612737', 'yes', 'student', 0, '2012-06-10 03:06:57', '2012-06-10 03:06:58'),
-(13, 'rein0002', 'f117b1c43ff2a7aa7883c193b14c8c8b', 'Reinardus Pradhitya', 'rein0002@ntu.edu.sg', 'pending', '87654321', 'yes', 'student', 0, '2012-06-10 03:06:15', '2012-06-10 03:06:15');
+(16, 'rein0002', 'f117b1c43ff2a7aa7883c193b14c8c8b', 'Reinardus Surya Pradhitya', 'rein0002@ntu.edu.sg', 'yes', '83612737', 'yes', 'student', 0, '2012-06-23 11:06:00', '2012-06-28 12:06:38');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -1,114 +1,146 @@
-	/*table*/
-	.t-items{
-		margin-top:30px;
-		color:#000;}
-	.t-items tr > td{
-		padding: 20px;}
-	.t-items tr > td:first-child.thumb{ /*thumbnail*/
-		width: 200px;
-		padding-right:0px;}
-	.t-items tr > td:nth-child(2).desc{
-		width:350px;
-		border-left:none;
-		text-align:left;}
-	.t-items tr > td:nth-child(2) h4{
-		font-size:15px;
-		line-height:30px;
-		}
-	.t-items tr > td:nth-child(3){
-		width:250px;}
-    .detailed-table abbr{
-		font-size:12px;
-		color:#666;}	
+/*table*/
+.t-items{
+	margin-top:30px;
+	color:#000;}
+.t-items tr > td{
+	padding: 20px;}
+.t-items tr > td:first-child.thumb{ /*thumbnail*/
+	width: 200px;
+	padding-right:0px;}
+.t-items tr > td:nth-child(2).desc{
+	width:350px;
+	border-left:none;
+	text-align:left;}
+.t-items tr > td:nth-child(2) h4{
+	font-size:15px;
+	line-height:30px;
+	}
+.t-items tr > td:nth-child(3){
+	width:250px;}
+	.detailed-table abbr{
+	font-size:12px;
+	color:#666;}	
+
+
+/*info*/
+.detailed-info{
+	font-size:15px;
+	font-weight:bold;
+	line-height:30px;}
+.detailed-table tr td{
+	border:none;
+	padding:0px;
+	}
+.detailed-table .detail-item{
+	color:#666;}
+.detailed-table .view-bidding{
+	color:;}
+.detailed-table .view-bidding:hover{
+		color:#0082c8}
+/*bidding table _buyerview*/
+.bidding-table{
+	border:1px #ccc solid;
+	display:none;}
+.bidding-table tr td{
+	padding:5px 10px;border: 1px #ccc solid;}
+.bidding-table tr:nth-child(1){
+	font-weight:bold;}
+.bidding-table tr td:nth-child(1){
+	width:30px;}
+.bidding-table tr td:nth-child(2){
+	width:auto;}
+.bidding-table tr td:nth-child(3){
+	width:50px;}
+.approved{
+	color:#48b300;}
+.pending{
+	color:#b31100;}
+/*customertable bidding_sellerview*/
+.bidding-table-sellerview{
+	border:none;}
+.bidding-table-sellerview tr td{
+	padding:5px 8px; 
+	border-top: 1px #f1f1f1 solid;
+	border-left:none;
+	height:30px;
+	vertical-align:middle;}
+.bidding-table-sellerview tr:hover{
+	background:#F7FBFD;}
+.bidding-table-sellerview tr:nth-child(1){
+	font-weight:bold;}
+.bidding-table-sellerview tr td:nth-child(1){
+	width:80px;}
+.bidding-table-sellerview tr td:nth-child(2){
+	width:70px;}
+.bidding-table-sellerview tr td:nth-child(3){
+	width:120px;}
+.bidding-table-sellerview tr td:nth-child(4){
+	text-align:center;
+	width:100px;}
+.bidding-table-sellerview tr td:nth-child(5){
+	text-align:center;
+	width:200px;}
+/*customertable interesteduser_buyerview*/
+.interesteduser-table-sellerview{
+	border:none;}
+.interesteduser-table-sellerview tr td{
+	padding:5px 20px; border-top: 1px #f1f1f1 solid;
+	border-left:none;
+	height:30px;
+	vertical-align:middle;}
+.interesteduser-table-sellerview tr:hover{
+	background:#F7FBFD;}
+.interesteduser-table-sellerview tr:nth-child(1){
+	font-weight:bold;}
+.interesteduser-table-sellerview tr td:nth-child(1){
+	width:80px;}
+.interesteduser-table-sellerview tr td:nth-child(2){
+	width:90px;}
+.interesteduser-table-sellerview tr td:nth-child(3){
+	width:100px;}
+.interesteduser-table-sellerview tr td:nth-child(4){
+	text-align:center;
+	width:140px;}
+
 	
+/*action group*/
+.action-group{
+	margin-top:40px;}
+.input-xsmall{
+	width:30px;}
+.input-small2{
+	width:55px;}
+.input-quantity{
+	margin-right:20px;}
+.btn-bid{
+	margin-top:0px;
+	margin-left:10px;
+	font-weight: bold;}
+.tot-price{
+	color:#666;}
+.btn-buynow{
+	margin-bottom:5px;
+	}
+
 	
-	/*info*/
-	.detailed-info{
-		font-size:15px;
-		font-weight:bold;
-		line-height:30px;}
-	.detailed-table tr td{
-		border:none;
-		padding:0px;
-		}
-	.detailed-table .detail-item{
-		color:#666;}
-	.detailed-table .view-bidding{
-		color:#666;}
-	.detailed-table .view-bidding:hover{
-			color:#0082c8}
-	
-	.bidding-table{
-		border:1px #ccc solid;
-		display:none;
-		}
-	.bidding-table tr td{
-		padding:5px 10px;border: 1px #ccc solid;}
-	.bidding-table tr:nth-child(1){
-		font-weight:bold;}
-	.bidding-table tr td:nth-child(1){
-		width:30px;}
-	.bidding-table tr td:nth-child(2){
-		width:20px;}
-	.bidding-table tr td:nth-child(3){
-		width:auto;}
-	.bidding-table tr td:nth-child(4){
-		width:40px;}
-	.bidding-table .approved{
-		color:#48b300;}
-	.bidding-table .pending{
-		color:#b31100;}
-	
-		
-	/*action group*/
-	.action-group{
-		margin-top:40px;}
-	.input-xsmall{
-		width:30px;}
-	.input-small2{
-		width:55px;}
-	.input-quantity{
-		margin-right:20px;}
-	.btn-bid{
-		padding: 10px 111px;
-		font-size:18px;
-		margin-top:10px;
-		font-weight: bold;}
-	.tot-price{
-		color:#666;}
-	
-		
-	/*other*/	
-    .result-queries{
-		margin-top:30px;
-		display:block;
-		font-size:15px;}
-	
-	/*owner priviledge*/
-	.owner-text{
-		margin-right: 20px;
-		}
-	.content-header{
-		text-align:center;
-		padding:0px;}
-	.itemlog{
-		list-style:none;
-		border-radius:4px;
-		overflow:hidden;
-		margin-left:0px;
-		margin-right:20px;}
-	.itemlog hr{
-		margin:0px 0px;
-		border-bottom:#333;
-		}
-	.itemlog li{
-		padding:10px;}
-	.itemlog li.unread{
-		background:#e7f6fd;
-		border-radius:0px;}
-	.itemlog li:hover{
-		background: #f7fbfd;
-		}
-	.timestamp{
-		font-size:9px;
-		color:#ccc;}
+/*other*/	
+.result-queries{
+	margin-top:30px;
+	display:block;
+	font-size:15px;}
+.alert-posting{
+	margin-top:20px;}
+
+/*owner priviledge*/
+.owner .btn{
+	margin-top:5px;
+	}
+.owner-text{
+	margin-right: 20px;
+	}
+.content-header{
+	text-align:center;
+	padding:0px;}
+.unread{
+	background:#e7f6fd;
+	border-radius:0px;}

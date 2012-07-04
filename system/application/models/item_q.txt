@@ -2,3 +2,11 @@ SELECT * FROM um_item AS a WHERE
 price>=7 AND price<=20 
 AND (EXISTS(SELECT * FROM um_item_tag AS b WHERE a.itemID=b.itemID AND (tagID=2 OR tagID=4 or tagID=7)))
 AND ((name LIKE "%pro%")OR(description LIKE "%pro%")OR(name LIKE "%legend%")OR(description LIKE "%legend%"))
+
+SELECT a.*,SUM(CASE WHEN b.approved='yes' THEN 1 ELSE 0 END) AS acc_bids,SUM(CASE WHEN b.bidID IS NULL THEN 0 ELSE 1 END) AS num_bids, MAX(CASE WHEN b.approved='no' THEN b.price ELSE 0 END) AS highest
+FROM um_item AS a LEFT JOIN um_bid as b ON (a.itemID=b.itemID) 
+WHERE 
+a.price>=7 AND a.price<=20 
+AND (EXISTS(SELECT * FROM um_item_tag AS c WHERE a.itemID=c.itemID AND (c.tagID=2 OR c.tagID=4 or c.tagID=7)))
+AND ((a.name LIKE "%pro%")OR(a.description LIKE "%pro%")OR(a.name LIKE "%legend%")OR(a.description LIKE "%legend%"))
+GROUP BY a.itemID
